@@ -44,7 +44,7 @@ copyDurandal "HTML/StarterKit/lib/durandal/js" `
 copyStarterKit "HTML/StarterKit/app" `
 			   "HTML/StarterKit/css"
 
-Write-Host "Building .NET/Samples"  
+Write-Host "Building .NET/Samples"
 
 copyDurandal "Microsoft.NET/Samples/Durandal.Samples/Scripts/durandal" `
 		 	 "Microsoft.NET/Samples/Durandal.Samples/Content" `
@@ -100,3 +100,12 @@ Write-Host "Building Bower Package"
 copyDurandal "Bower/Durandal/js" `
              "Bower/Durandal/css" `
              "Bower/Durandal/img"
+
+Write-Host "Building Yeoman/StarterKit"
+
+copyDurandal "Yeoman/StarterKit/app/templates/lib/durandal/js" `
+	   		     "Yeoman/StarterKit/app/templates/lib/durandal/css" `
+		 	       "Yeoman/StarterKit/app/templates/lib/durandal/img"
+
+copyStarterKit "Yeoman/StarterKit/app/templates/app" `
+			         "Yeoman/StarterKit/app/templates/css"
