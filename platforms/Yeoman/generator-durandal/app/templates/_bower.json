@@ -1,6 +1,7 @@
 {
-  "name": "package",
-  "version": "0.0.0",
+  "name": "<%= _.slugify(appName) %>",
+  "version": "<%= appVersion %>",
+  "author": "<%= author %>",
   "dependencies": {}
 }
 
