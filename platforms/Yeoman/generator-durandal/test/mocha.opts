@@ -1,5 +1,4 @@
 --ui bdd
 --reporter spec
 --compilers coffee:coffee-script
---recursive
 --colors
