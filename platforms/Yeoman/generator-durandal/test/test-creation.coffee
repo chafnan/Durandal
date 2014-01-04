@@ -40,6 +40,7 @@ describe 'durandal generator', ->
       authorName: 'Test Author'
       authorEmail: 'test@durandaljs.com'
       authorWebsite: 'durandaljs.com'
+      private: true
 
     this.app.options['skip-install'] = true
 
