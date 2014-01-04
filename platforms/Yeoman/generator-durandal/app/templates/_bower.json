@@ -1,7 +1,0 @@
-{
-  "name": "<%= _.slugify(appName) %>",
-  "version": "<%= appVersion %>",
-  "author": "<%= author %>",
-  "dependencies": {}
-}
-

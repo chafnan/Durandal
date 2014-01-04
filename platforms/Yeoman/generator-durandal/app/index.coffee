@@ -22,14 +22,14 @@ DurandalGenerator = module.exports = class
 
     prompts = [
       { name: 'appName', message: 'What would you like to name your app?' }
-      { name: 'appVersion', message: 'What is your app version?' }
+      { name: 'appVersion', message: 'What is your app version?', 'default': '0.0.0' }
       { name: 'authorName', message: "What is the author's name?" }
       { name: 'authorEmail', message: "What is the author's email?"}
       { name: 'authorWebsite', message: "What is the author's website?" }
       { name: 'private', message: 'Is this app private?', 'default': true}
     ]
 
-    prompts = (props) ->
+    prop = (props) ->
       @appName = props.appName
       @appVersion = props.appVersion
 
@@ -40,41 +40,8 @@ DurandalGenerator = module.exports = class
       @private = props.private
       cb()
 
-    @prompt prompts, prompts.bind(@)
+    @prompt prompts, prop.bind(@)
 
   projectfiles: ->
-    @copy 'editorconfig', '.editorconfig'
-    @copy 'jshintrc', '.jshintrc'
-    @copy '_bower.json', 'bower.json'
-
-  app: ->
-    srcDir = 'starter/app'
-    destDir = 'app'
-    @copyFiles srcDir, destDir, [
-      'main.js'
-    ]
-
-    @copyFiles "#{srcDir}/viewmodels", "#{destDir}/viewmodels", [
-      'flickr.js'
-      'shell.js'
-      'welcome.js'
-    ]
-
-    @copyFiles "#{srcDir}/views", "#{destDir}/views", [
-      'detail.html'
-      'flickr.html'
-      'shell.html'
-      'welcome.html'
-    ]
-
-  css: ->
-    srcDir = 'starter/css'
-    destDir = 'css'
-
-    @copyFiles srcDir, destDir, [
-      'ie10mobile.css'
-      'starterkit.css'
-    ]
-
-  copyFiles: (srcDir = null, destDir = null, files = null) ->
-    @copy("#{srcDir}/#{file}", "#{destDir}/#{file}") for file in files if files
+    @copy '_package.json', 'package.json'
+    @directory 'starter', '.'

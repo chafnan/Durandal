@@ -15,9 +15,7 @@ describe 'durandal generator', ->
 
   it 'creates expected files', (done) ->
     expected = [
-      '.jshintrc'
-      '.editorconfig'
-      'bower.json'
+      'package.json'
 
       #app
       'app/viewmodels/flickr.js'
@@ -32,6 +30,8 @@ describe 'durandal generator', ->
       #css
       'css/ie10mobile.css'
       'css/starterkit.css'
+
+      #lib
     ]
 
     helpers.mockPrompt @app,
