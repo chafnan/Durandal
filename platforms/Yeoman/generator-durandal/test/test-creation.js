@@ -22,11 +22,13 @@ describe('durandal generator', function () {
     var expected = [
       '.jshintrc',
       '.editorconfig',
-      'app',
-      'css',
-      ['.bowerrc', /\.\/lib/],
+      ['.bowerrc', /\.\/public\/lib/],
       ['bower.json', /"name": "test-project"/],
-      ['package.json', /"name": "test-project"/]
+      ['package.json', /"name": "test-project"/],
+      'public/app',
+      'public/css',
+      'public/index.html',
+      'public/weyland-config.js'
     ];
 
     helpers.mockPrompt(this.app, {

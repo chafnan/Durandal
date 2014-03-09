@@ -11,11 +11,19 @@ var DurandalGenerator = module.exports = function DurandalGenerator(args, option
   this.argument('appname', { type: String, required: false });
   this.appName = this.appname || path.basename(process.cwd());
 
+  this.option('public-path', {
+    type: String,
+    required: false,
+    defaults: 'public',
+    description: 'This folder is the public folder for the web server'
+  });
+  this.env.options.publicPath = this.options['public-path'] || 'public'
+
   this.option('app-path', { type: String, required: false, defaults: 'app' });
-  this.env.options.appPath = this.options['app-path'] || 'app';
+  this.env.options.appPath = path.join(this.env.options.publicPath, (this.options['app-path'] || 'app'));
 
   this.option('css-path', { type: String, required: false, defaults: 'css' });
-  this.env.options.cssPath = this.options['css-path'] || 'css';
+  this.env.options.cssPath = path.join(this.env.options.publicPath, (this.options['css-path'] || 'css'));
 
   this.env.options.starterKitPath = '../starterkit';
 
@@ -66,7 +74,12 @@ DurandalGenerator.prototype.packageJSON = function packageJSON() {
 }
 
 DurandalGenerator.prototype.app = function app() {
-  this.directory(this.env.options.starterKitPath + '/app', this.env.options.appPath);
+  var publicPath = this.env.options.publicPath;
+  var starterKitPath = this.env.options.starterKitPath;
+  this.directory(starterKitPath + '/app', this.env.options.appPath);
+
+  this.copy(starterKitPath + '/index.html', publicPath + '/index.html');
+  this.copy(starterKitPath + '/weyland-config.js', publicPath + '/weyland-config.js');
 };
 
 DurandalGenerator.prototype.css = function css() {
