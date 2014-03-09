@@ -100,3 +100,6 @@ Write-Host "Building Bower Package"
 copyDurandal "Bower/Durandal/js" `
              "Bower/Durandal/css" `
              "Bower/Durandal/img"
+
+copySamples "Yeoman/generator-durandal/app/starterkit/app" `
+		 	      "Yeoman/generator-durandal/app/starterkit/css"
