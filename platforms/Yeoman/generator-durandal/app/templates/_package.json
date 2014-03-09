@@ -4,5 +4,8 @@
   "dependencies": {<% if (options.express) { %>
     "express": "^3.5.0",
     "jade": "^1.3.0"
-  <% } %>}
-}
+  <% } %>}<% if (options.express) { %>,
+  "scripts": {
+    "start": "node app.js"
+  }
+<% } %>}
