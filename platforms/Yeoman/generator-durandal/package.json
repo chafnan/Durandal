@@ -1,7 +1,7 @@
 {
   "name": "generator-durandal",
-  "version": "0.0.0",
-  "description": "A generator for Yeoman",
+  "version": "2.1.0",
+  "description": "A generator for Durandal",
   "keywords": [
     "yeoman-generator"
   ],
@@ -12,6 +12,13 @@
     "email": "info@bluespire.com",
     "url": "https://github.com/EisenbergEffect"
   },
+  "contributors": [
+    {
+      "name": "Jonathan Chapman",
+      "email": "chafnan@gmail.com",
+      "url": "https://github.com/chafnan"
+    }
+  ],
   "main": "app/index.js",
   "repository": {
     "type": "git",
@@ -21,13 +28,17 @@
     "test": "mocha"
   },
   "dependencies": {
-    "yeoman-generator": "~0.12.0"
+    "yeoman-generator": "~0.14.0"
   },
   "devDependencies": {
-    "mocha": "~1.10.0"
+    "mocha": "~1.14.0"
+  },
+  "peerDependencies": {
+    "yo": ">=1.0.0"
   },
   "engines": {
-    "node": ">=0.8.0"
+    "node": ">=0.8.0",
+    "npm": ">=1.2.10"
   },
   "licenses": [
     {

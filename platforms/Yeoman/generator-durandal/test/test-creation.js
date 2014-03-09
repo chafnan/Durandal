@@ -1,9 +1,8 @@
 /*global describe, beforeEach, it*/
 'use strict';
 
-var path    = require('path');
+var path = require('path');
 var helpers = require('yeoman-generator').test;
-
 
 describe('durandal generator', function () {
   beforeEach(function (done) {
@@ -21,15 +20,21 @@ describe('durandal generator', function () {
 
   it('creates expected files', function (done) {
     var expected = [
-      // add files you expect to exist here.
       '.jshintrc',
-      '.editorconfig'
+      '.editorconfig',
+      'app',
+      'css',
+      ['.bowerrc', /\.\/lib/],
+      ['bower.json', /"name": "test-project"/],
+      ['package.json', /"name": "test-project"/]
     ];
 
     helpers.mockPrompt(this.app, {
-      'someOption': 'Y'
+      appName: 'Test Project'
     });
+
     this.app.options['skip-install'] = true;
+
     this.app.run({}, function () {
       helpers.assertFiles(expected);
       done();
